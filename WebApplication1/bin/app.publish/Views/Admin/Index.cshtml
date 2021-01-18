@@ -1,0 +1,30 @@
+﻿@using WebApplication1.Models.Siniflar
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog List</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>HEADER</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+        <th>DETAILS</th>
+    </tr>
+    @foreach (var x in Model) 
+    {
+<tr>
+    <td>@x.ID</td>
+    <td>@x.Baslik</td>
+    <td><a href="/Admin/BlogSil/@x.ID" class="btn btn-danger">DELETE</a></td>
+    <td><a href="/Admin/BlogGetir/@x.ID" class="btn btn-success">UPDATE</a></td>
+    <td><a href="#" class="btn btn-info">DETAILS</a></td>
+</tr>
+    }
+</table>
+<a href="/Admin/YeniBlog/" class="btn btn-primary">New Blog</a>
+
